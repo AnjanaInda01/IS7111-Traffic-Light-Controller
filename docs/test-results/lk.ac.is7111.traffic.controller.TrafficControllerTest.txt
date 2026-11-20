@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: lk.ac.is7111.traffic.controller.TrafficControllerTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.534 s -- in lk.ac.is7111.traffic.controller.TrafficControllerTest

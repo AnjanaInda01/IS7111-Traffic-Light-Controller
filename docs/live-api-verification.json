@@ -1,0 +1,92 @@
+{
+  "verifiedOn": "2026-11-20",
+  "java": "17.0.12",
+  "checks": [
+    {
+      "check": "S1 initial state",
+      "result": "PASS",
+      "state": {
+        "currentLight": "RED",
+        "mode": "STOPPED",
+        "remainingSeconds": 0,
+        "running": false,
+        "emergency": false,
+        "message": "Ready to start"
+      }
+    },
+    {
+      "check": "T1 live full cycle with real scheduler and HTTP",
+      "result": "PASS",
+      "observed": [
+        {
+          "light": "RED",
+          "atSeconds": 0.03,
+          "remaining": 10
+        },
+        {
+          "light": "GREEN",
+          "atSeconds": 10.05,
+          "remaining": 8
+        },
+        {
+          "light": "YELLOW",
+          "atSeconds": 18.03,
+          "remaining": 3
+        },
+        {
+          "light": "RED",
+          "atSeconds": 21.11,
+          "remaining": 10
+        }
+      ]
+    },
+    {
+      "check": "T2 pause at five, wait two seconds, resume",
+      "result": "PASS",
+      "state": {
+        "currentLight": "RED",
+        "mode": "AUTOMATIC",
+        "remainingSeconds": 4,
+        "running": true,
+        "emergency": false,
+        "message": "Normal cycle"
+      }
+    },
+    {
+      "check": "T3 emergency during green and Stop cannot bypass lock",
+      "result": "PASS",
+      "state": {
+        "currentLight": "RED",
+        "mode": "STOPPED",
+        "remainingSeconds": 0,
+        "running": false,
+        "emergency": true,
+        "message": "Emergency locked - Reset required"
+      }
+    },
+    {
+      "check": "T4 invalid resume and invalid manual preserve state",
+      "result": "PASS",
+      "state": {
+        "currentLight": "RED",
+        "mode": "STOPPED",
+        "remainingSeconds": 0,
+        "running": false,
+        "emergency": false,
+        "message": "Ready to start"
+      }
+    },
+    {
+      "check": "S5 all manual lights over HTTP",
+      "result": "PASS",
+      "state": {
+        "currentLight": "GREEN",
+        "mode": "MANUAL",
+        "remainingSeconds": 0,
+        "running": false,
+        "emergency": false,
+        "message": "Manual light selected"
+      }
+    }
+  ]
+}
